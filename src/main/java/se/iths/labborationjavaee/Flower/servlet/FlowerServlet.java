@@ -1,8 +1,16 @@
 package se.iths.labborationjavaee.Flower.servlet;
 
-public class FlowerServlet {
+import jakarta.servlet.http.HttpServlet;
 
-    public FlowerServlet() {
+public class FlowerServlet extends HttpServlet {
+
+    public void init() {
 
     }
+
 }
+
+
+
+
+
