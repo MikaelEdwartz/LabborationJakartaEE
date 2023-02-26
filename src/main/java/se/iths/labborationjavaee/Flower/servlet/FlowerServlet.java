@@ -22,7 +22,17 @@ public class FlowerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        var flower = new Flower();
+        resp.setContentType("text/html");
+
+        String value = req.getParameter("q");
+
+        String header = req.getHeader("host");
+        // Hello
+        PrintWriter out = resp.getWriter();
+        out.println("<html><body>");
+        out.println("<h1>" + "message" + "</h1>");
+        out.println("</body></html>");
+        /*      var flower = new Flower();
         flower.setName("blåsippemilf");
         repository.insertFlower(flower);
 
@@ -39,7 +49,7 @@ public class FlowerServlet extends HttpServlet {
         //   for (Flower flowers : repository.getAll())
         //      out.print("<div>" + flowers.getId() + "--" + flowers.getName() + "</div>");
         out.print("</body></html>");
-
+*/
     }
 }
 //}
