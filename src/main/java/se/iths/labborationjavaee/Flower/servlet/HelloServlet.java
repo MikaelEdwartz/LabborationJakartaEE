@@ -1,4 +1,4 @@
-package se.iths.labborationjavaee;
+package se.iths.labborationjavaee.Flower.servlet;
 
 import java.io.*;
 
