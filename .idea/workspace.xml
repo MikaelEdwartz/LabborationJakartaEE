@@ -10,10 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c3b619b-2599-4858-a57d-1ab6545b8418" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/dto/FlowerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/dto/FlowerDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/repository/FlowerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/repository/FlowerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/servlet/FlowerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/servlet/FlowerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/mapper/FlowerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/mapper/FlowerMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +155,7 @@
       <option name="presentableId" value="Default" />
       <updated>1677239472641</updated>
       <workItem from="1677239473891" duration="3441000" />
-      <workItem from="1677315938943" duration="13742000" />
+      <workItem from="1677315938943" duration="14146000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1677241458870</created>
@@ -223,7 +220,28 @@
       <option name="project" value="LOCAL" />
       <updated>1677412225180</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add FlowerDto.java with code">
+      <created>1677419561305</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677419561305</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add mapper class">
+      <created>1677419584111</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1677419584111</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add code">
+      <created>1677419613686</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1677419613686</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +256,10 @@
     <MESSAGE value="add 404 error handling" />
     <MESSAGE value="incase 404 error, it gets shown a nice image and also alternative text for screen readers" />
     <MESSAGE value="add jboss-webb.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="add jboss-webb.xml" />
+    <MESSAGE value="add FlowerDto.java with code" />
+    <MESSAGE value="add mapper class" />
+    <MESSAGE value="add code" />
+    <option name="LAST_COMMIT_MESSAGE" value="add code" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
