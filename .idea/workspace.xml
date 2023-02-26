@@ -10,12 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c3b619b-2599-4858-a57d-1ab6545b8418" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/dto/FlowerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/dto/FlowerDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/repository/FlowerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/repository/FlowerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/servlet/FlowerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/servlet/FlowerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1677239472641</updated>
       <workItem from="1677239473891" duration="3441000" />
-      <workItem from="1677315938943" duration="6625000" />
+      <workItem from="1677315938943" duration="8215000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1677241458870</created>
@@ -181,7 +179,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677406807536</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add 404 error handling">
+      <created>1677407578378</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677407578379</updated>
+    </task>
+    <task id="LOCAL-00007" summary="incase 404 error, it gets shown a nice image and also alternative text for screen readers">
+      <created>1677408031979</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677408031979</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +205,9 @@
     <MESSAGE value="add FlowerEntity.java" />
     <MESSAGE value="rename FlowerEntity.java to Flower" />
     <MESSAGE value="add flowerDTO" />
-    <option name="LAST_COMMIT_MESSAGE" value="add flowerDTO" />
+    <MESSAGE value="add 404 error handling" />
+    <MESSAGE value="incase 404 error, it gets shown a nice image and also alternative text for screen readers" />
+    <option name="LAST_COMMIT_MESSAGE" value="incase 404 error, it gets shown a nice image and also alternative text for screen readers" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

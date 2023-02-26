@@ -14,8 +14,8 @@ public class FlowerRepository {
     EntityManager entityManager;
 
     public void insertFlower(String name, String color) {
-        var flower = new Flower()
-        entityManager.persist(new Flower(name, color));
+        //  var flower = new Flower()
+        //  entityManager.persist(new Flower(name, color));
     }
 
     public void insertFlower(String name) {

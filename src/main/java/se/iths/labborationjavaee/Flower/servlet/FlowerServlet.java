@@ -1,5 +1,8 @@
 package se.iths.labborationjavaee.Flower.servlet;
 
+import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,41 +15,14 @@ import java.io.PrintWriter;
 @WebServlet(name = "flowerServlet", value = "/flowers")
 public class FlowerServlet extends HttpServlet {
 
-    public void init() {
-
-    }
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        resp.setContentType("text/html");
-
-        PrintWriter out = resp.getWriter();
-
-        out.println("<html><body>");
-        out.println("<h1>" + "blåsippemilf" + "<h1>");
-        out.print("</body></html>");
+        super.doGet(req, resp);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
-
-        resp.setContentType("text/html");
-
-        PrintWriter out = resp.getWriter();
-
-        out.println("<html><body>");
-        out.println("<h1>" + "blåsippemilf" + "<h1>");
-        out.println("<h1>" + "blåsippemilf" + "<h1>");
-        out.println("<h1>" + "blåsippemilf" + "<h1>");
-        out.print("</body></html>");
-
-    }
-
-    public void destroy() {
-
-    }
 }
 
 
