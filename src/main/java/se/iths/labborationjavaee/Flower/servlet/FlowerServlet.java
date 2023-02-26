@@ -26,6 +26,21 @@ public class FlowerServlet extends HttpServlet {
         out.println("<html><body>");
         out.println("<h1>" + "blåsippemilf" + "<h1>");
         out.print("</body></html>");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+
+        resp.setContentType("text/html");
+
+        PrintWriter out = resp.getWriter();
+
+        out.println("<html><body>");
+        out.println("<h1>" + "blåsippemilf" + "<h1>");
+        out.println("<h1>" + "blåsippemilf" + "<h1>");
+        out.println("<h1>" + "blåsippemilf" + "<h1>");
+        out.print("</body></html>");
 
     }
 

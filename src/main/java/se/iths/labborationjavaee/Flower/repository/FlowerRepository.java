@@ -22,4 +22,8 @@ public class FlowerRepository {
 
     }
 
+    public void insertFlower(Flower flower) {
+        entityManager.persist(flower);
+    }
+
 }
