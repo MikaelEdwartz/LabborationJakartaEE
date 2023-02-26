@@ -1,4 +1,4 @@
-package se.iths.labborationjavaee.Flower.servlet;
+package se.iths.labborationjavaee.Hello;
 
 import java.io.*;
 
@@ -16,6 +16,9 @@ public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
+        String value = request.getParameter("q");
+
+        String header = request.getHeader("host");
         // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
