@@ -25,15 +25,12 @@ public class FlowerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
+        for (int i = 0; i < 3; i++) {
 
-        String value = req.getParameter("q");
-
-        String header = req.getHeader("host");
-        // Hello
-        var flower = new Flower();
-        flower.setName("blåsippedilf");
-        repository.insertFlower(flower);
-
+            var flower = new Flower();
+            flower.setName("ros");
+            repository.insertFlower(flower);
+        }
         var path = req.getPathInfo();
 
         if (path == null || path.equals("/")) {
@@ -43,10 +40,11 @@ public class FlowerServlet extends HttpServlet {
             out.print("<h1>" + "Flowers" + "</h1>");
             out.print("<h1>" + path + "</h1>");
             for (Flower flowers : repository.findAll())
-                out.print("<div>" + flowers.getId() + "--" + flowers.getName() + "</div>");
+                out.print("<div>" + flowers.getId() + ":" + flowers.getName() + "</div>");
             out.print("</body></html>");
 
         } else {
+
             resp.setContentType("text/html");
             resp.sendError(404);
         }

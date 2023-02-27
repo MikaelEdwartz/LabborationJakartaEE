@@ -20,6 +20,12 @@ public class FlowerRepository {
         return query.getResultList();
     }
 
+    public List<Flower> findByName(String name) {
+        var query = entityManager.createQuery("SELECT f FROM Flower f WHERE f.name LIKE :name");
+        query.setParameter("name", name);
+        return query.getResultList();
+    }
+
     public void insertFlower(Flower flower) {
         entityManager.persist(flower);
     }

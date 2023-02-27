@@ -23,8 +23,11 @@ public class FoodController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<FlowerDto> getAll() {
-        return mapper.map(repository.findAll());
+    public List<FlowerDto> getAll(@QueryParam("name") String name) {
+        if (name == null)
+            return mapper.map(repository.findAll());
+
+        return mapper.map(repository.findByName(name));
 
     }
 
