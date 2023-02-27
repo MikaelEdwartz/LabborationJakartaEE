@@ -44,7 +44,10 @@ public class FlowerServlet extends HttpServlet {
 
         } else {
             var search = path.substring(1);
+            resp.setContentType("application/json");
+
             var out = resp.getWriter();
+
             if (RegexMatcher.isLetter(search)) {
                 var flower = repository.findByName(search);
                 out.print(JsonbBuilder.create().toJson(flower));
@@ -60,41 +63,26 @@ public class FlowerServlet extends HttpServlet {
         }
 
     }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        StringBuffer buffer = new StringBuffer();
-        String line = null;
-
-        try {
-            BufferedReader reader = req.getReader();
-            while ((line = reader.readLine()) != null) {
-                buffer.append(line);
-            }
-        } catch (Exception e) {
-
-        }
-
-        Flower flower = JsonbBuilder.create().fromJson(buffer.toString(), Flower.class);
-        repository.insertFlower(flower);
-
-    }
+//
+//    @Override
+//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        StringBuffer buffer = new StringBuffer();
+//        String line = null;
+//
+//        try {
+//            BufferedReader reader = req.getReader();
+//            while ((line = reader.readLine()) != null) {
+//                buffer.append(line);
+//            }
+//        } catch (Exception e) {
+//
+//        }
+//
+//        Flower flower = JsonbBuilder.create().fromJson(buffer.toString(), Flower.class);
+//        repository.insertFlower(flower);
+//
+//    }
 }
-
-
-
-/*
-
-        if(path == null || path.equals("/")){
-            resp.setContentType("text/html");
-            var out = resp.getWriter();
-            out.println("<html><body>");
-            out.print("<h1>" + "Flowers" + "</h1>");
-            out.print("<h1>" + path + "</h1>");
-            for (Flower flower : repository.getAll())
-                out.print("<div>" + flower.getId() + "--" + flower.getName() + "</div>");
-            out.print("</body></html>");
- */
 
 
 
