@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import se.iths.labborationjavaee.Flower.entity.Flower;
 
 import java.util.List;
+import java.util.Optional;
 
 @ApplicationScoped
 @Transactional
@@ -30,4 +31,7 @@ public class FlowerRepository {
         entityManager.persist(flower);
     }
 
+    public Optional<Flower> findById(long id) {
+        return Optional.ofNullable(entityManager.find(Flower.class, id));
+    }
 }

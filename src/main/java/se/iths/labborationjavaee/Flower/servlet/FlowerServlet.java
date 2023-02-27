@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import se.iths.labborationjavaee.Flower.entity.Flower;
 import se.iths.labborationjavaee.Flower.repository.FlowerRepository;
+import se.iths.labborationjavaee.Flower.resource.RegexMatcher;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -45,10 +46,21 @@ public class FlowerServlet extends HttpServlet {
 
         } else {
             var search = path.substring(1);
-            if (search.matches("[a-z]"))
+            var out = resp.getWriter();
+            if (RegexMatcher.isLetter(search)) {
+                var flower = repository.findByName(search);
+                out.print(JsonbBuilder.create().toJson(flower));
+            } else if (RegexMatcher.isNumber(search)) {
+                var id = Long.parseLong(search);
+                var flower = repository.findById(id);
+                out.print(JsonbBuilder.create().toJson(flower));
+            } else {
                 resp.setContentType("text/html");
-            resp.sendError(404);
+                resp.sendError(404);
+            }
+
         }
+
     }
 
     @Override
