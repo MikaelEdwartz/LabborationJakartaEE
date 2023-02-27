@@ -12,11 +12,11 @@ public class RegexMatcher {
     public static String letters = "[a-zA-Z]";
 
     public static boolean isNumber(String search) {
-        return compileNumber(search) && compileLetter(search);
+        return (compileNumber(search) && !compileLetter(search));
     }
 
     public static boolean isLetter(String search) {
-        return !compileNumber(search) && compileLetter(search);
+        return (!compileNumber(search) && compileLetter(search));
     }
 
     public static boolean compileNumber(String search) {

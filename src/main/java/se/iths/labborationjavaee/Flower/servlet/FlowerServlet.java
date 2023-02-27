@@ -26,12 +26,7 @@ public class FlowerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        for (int i = 0; i < 3; i++) {
 
-            var flower = new Flower();
-            flower.setName("ros");
-            repository.insertFlower(flower);
-        }
         var path = req.getPathInfo();
 
         if (path == null || path.equals("/")) {
