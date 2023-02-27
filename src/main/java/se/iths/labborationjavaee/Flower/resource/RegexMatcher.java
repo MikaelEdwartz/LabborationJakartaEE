@@ -1,9 +1,6 @@
 package se.iths.labborationjavaee.Flower.resource;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
-
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @ApplicationScoped

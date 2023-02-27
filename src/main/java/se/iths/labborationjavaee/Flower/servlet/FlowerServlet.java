@@ -23,8 +23,6 @@ public class FlowerServlet extends HttpServlet {
 
     @Inject
     private FlowerRepository repository;
-    @Inject
-    private FoodController foodController;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -63,25 +61,7 @@ public class FlowerServlet extends HttpServlet {
         }
 
     }
-//
-//    @Override
-//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        StringBuffer buffer = new StringBuffer();
-//        String line = null;
-//
-//        try {
-//            BufferedReader reader = req.getReader();
-//            while ((line = reader.readLine()) != null) {
-//                buffer.append(line);
-//            }
-//        } catch (Exception e) {
-//
-//        }
-//
-//        Flower flower = JsonbBuilder.create().fromJson(buffer.toString(), Flower.class);
-//        repository.insertFlower(flower);
-//
-//    }
+
 }
 
 

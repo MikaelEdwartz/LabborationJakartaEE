@@ -10,8 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c3b619b-2599-4858-a57d-1ab6545b8418" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jboss-web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/resource/RegexMatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/resource/RegexMatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/servlet/FlowerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labborationjavaee/Flower/servlet/FlowerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jboss-webb.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +147,7 @@
       <updated>1677239472641</updated>
       <workItem from="1677239473891" duration="3441000" />
       <workItem from="1677315938943" duration="19514000" />
-      <workItem from="1677486315369" duration="10629000" />
+      <workItem from="1677486315369" duration="12714000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1677241458870</created>
@@ -293,7 +296,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677499751434</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add .idea/* to gitignore">
+      <created>1677499791620</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1677499791620</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add .idea/* to gitignore">
+      <created>1677499817848</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1677499817848</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +337,8 @@
     <MESSAGE value="add" />
     <MESSAGE value="mapper now maps correct" />
     <MESSAGE value="add code for when flower is created response gives url location of object" />
-    <option name="LAST_COMMIT_MESSAGE" value="add code for when flower is created response gives url location of object" />
+    <MESSAGE value="add .idea/* to gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add .idea/* to gitignore" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
