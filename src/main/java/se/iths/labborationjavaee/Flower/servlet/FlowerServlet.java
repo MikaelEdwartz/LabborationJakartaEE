@@ -44,8 +44,9 @@ public class FlowerServlet extends HttpServlet {
             out.print("</body></html>");
 
         } else {
-
-            resp.setContentType("text/html");
+            var search = path.substring(1);
+            if (search.matches("[a-z]"))
+                resp.setContentType("text/html");
             resp.sendError(404);
         }
     }
