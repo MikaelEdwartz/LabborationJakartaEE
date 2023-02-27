@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import se.iths.labborationjavaee.Flower.controller.FoodController;
 import se.iths.labborationjavaee.Flower.entity.Flower;
 import se.iths.labborationjavaee.Flower.repository.FlowerRepository;
 import se.iths.labborationjavaee.Flower.resource.RegexMatcher;
@@ -22,6 +23,8 @@ public class FlowerServlet extends HttpServlet {
 
     @Inject
     private FlowerRepository repository;
+    @Inject
+    private FoodController foodController;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
