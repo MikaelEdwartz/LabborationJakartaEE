@@ -39,4 +39,10 @@ public class FoodController {
         return Response.created(URI.create("flowers/" + flower.getId())).build();
     }
 
+    @DELETE
+    @Path("/{id}")
+    public void deleteOne(@PathParam("id") Long id) {
+        repository.deleteById(id);
+    }
+
 }

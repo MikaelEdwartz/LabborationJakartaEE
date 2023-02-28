@@ -34,4 +34,10 @@ public class FlowerRepository {
     public Optional<Flower> findById(long id) {
         return Optional.ofNullable(entityManager.find(Flower.class, id));
     }
+
+    public void deleteById(Long id) {
+        var flower = entityManager.find(Flower.class, id);
+        if (Optional.ofNullable(flower).isPresent())
+            entityManager.remove(flower);
+    }
 }
