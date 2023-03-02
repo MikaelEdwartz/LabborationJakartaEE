@@ -38,6 +38,6 @@ public class FlowerRepository {
     public void deleteById(Long id) {
         var flower = findById(id);
         if (flower.isPresent())
-            entityManager.remove(flower);
+            entityManager.remove(flower.get());
     }
 }
