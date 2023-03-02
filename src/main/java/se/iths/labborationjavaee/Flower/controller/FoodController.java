@@ -33,8 +33,8 @@ public class FoodController {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addOne(Flower flower) {
-
+    public Response addOne(FlowerDto flowerDto) {
+        var flower = mapper.map(flowerDto);
         repository.insertFlower(flower);
         return Response.created(URI.create("flowers/" + flower.getId())).build();
     }
