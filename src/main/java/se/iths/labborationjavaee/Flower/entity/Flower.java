@@ -16,8 +16,9 @@ public class Flower {
 
     private String color;
 
-    public void setId(Long id) {
+    public Flower setId(Long id) {
         this.id = id;
+        return this;
     }
 
     public Long getId() {
@@ -28,15 +29,17 @@ public class Flower {
         return name;
     }
 
-    public void setName(String name) {
+    public Flower setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public Flower setColor(String color) {
         this.color = color;
+        return this;
     }
 }

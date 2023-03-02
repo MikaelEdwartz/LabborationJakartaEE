@@ -37,6 +37,7 @@ public class FoodController {
     public Response addOne(@Valid FlowerDto flowerDto) {
         var flower = mapper.map(flowerDto);
         repository.insertFlower(flower);
+
         return Response.created(URI.create("flowers/" + flower.getId())).build();
     }
 
@@ -49,13 +50,12 @@ public class FoodController {
     @PUT
     @Path("/{id}")
     public void updateFlower(@PathParam("id") Long id, @QueryParam("name") String name, @QueryParam("color") String color) {
-        if (color == null) {
+        if (color == null)
             repository.changeFlowerName(id, name);
-        } else if (name == null) {
+        else if (name == null)
             repository.changeFlowerColor(id, color);
-        } else {
+        else
             repository.changeFlower(id, name, color);
-        }
 
     }
 }

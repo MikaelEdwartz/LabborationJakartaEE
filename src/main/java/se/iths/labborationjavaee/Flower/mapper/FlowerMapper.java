@@ -14,10 +14,10 @@ public class FlowerMapper {
     }
 
     public Flower map(FlowerDto flowerDto) {
-        Flower flower = new Flower();
-        flower.setId(flowerDto.getId());
-        flower.setName(flowerDto.getName());
-        flower.setColor(flowerDto.getColor());
+        var flower = new Flower();
+        flower.setId(flowerDto.getId())
+                .setName(flowerDto.getName())
+                .setColor(flowerDto.getColor());
         return flower;
     }
 }

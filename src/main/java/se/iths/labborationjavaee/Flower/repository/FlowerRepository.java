@@ -57,10 +57,8 @@ public class FlowerRepository {
 
     public void changeFlower(Long id, String name, String color) {
         var flower = findById(id);
-        if (flower.isPresent()) {
-            flower.get().setName(name);
-            flower.get().setColor(color);
-        }
+        if (flower.isPresent())
+            flower.get().setName(name).setColor(color);
 
     }
 }
