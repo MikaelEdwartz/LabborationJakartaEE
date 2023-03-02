@@ -40,4 +40,27 @@ public class FlowerRepository {
         if (flower.isPresent())
             entityManager.remove(flower.get());
     }
+
+    public void changeFlowerName(Long id, String name) {
+        var flower = findById(id);
+        if (flower.isPresent())
+            flower.get().setName(name);
+
+    }
+
+    public void changeFlowerColor(Long id, String color) {
+        var flower = findById(id);
+        if (flower.isPresent())
+            flower.get().setColor(color);
+
+    }
+
+    public void changeFlower(Long id, String name, String color) {
+        var flower = findById(id);
+        if (flower.isPresent()) {
+            flower.get().setName(name);
+            flower.get().setColor(color);
+        }
+
+    }
 }
