@@ -15,7 +15,11 @@ public class FlowerMapper {
     }
 
     public Flower map(FlowerDto flowerDto) {
-        return new Flower(flowerDto.getId(), flowerDto.getName(), flowerDto.getColor());
+        var flower = new Flower();
+        flower.setId(flowerDto.getId())
+                .setName(flowerDto.getName())
+                .setColor(flowerDto.getColor());
+        return flower;
     }
 
     public FlowerDto map(Flower flower) {

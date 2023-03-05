@@ -1,5 +1,9 @@
 package se.iths.labborationjavaee.Flower.controller;
 
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
@@ -36,12 +40,16 @@ public class FoodController {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "returns flower",
+                    content = @Content(schema = @Schema(implementation = FlowerDto.class))),
+            @ApiResponse(responseCode = "404", description = "id not found")})
     public Response getOne(@PathParam("id") Long id) {
         var flower = repository.findById(id);
         if (flower.isPresent())
             return Response.ok().entity(mapper.map(flower.get())).build();
 
-        throw new NotFoundException("id" + id);
+        throw new NotFoundException();
     }
 
     @POST
