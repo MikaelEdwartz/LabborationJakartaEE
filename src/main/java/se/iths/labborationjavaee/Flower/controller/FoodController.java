@@ -6,7 +6,6 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import se.iths.labborationjavaee.Flower.dto.FlowerDto;
-import se.iths.labborationjavaee.Flower.entity.Flower;
 import se.iths.labborationjavaee.Flower.mapper.FlowerMapper;
 import se.iths.labborationjavaee.Flower.repository.FlowerRepository;
 
@@ -24,12 +23,25 @@ public class FoodController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<FlowerDto> getAll(@QueryParam("name") String name) {
-        if (name == null)
+    public List<FlowerDto> getAll(@QueryParam("name") String name, @QueryParam("color") String color) {
+
+        if (name == null && color == null)
             return mapper.map(repository.findAll());
+        else if (name == null)
+            return mapper.map(repository.findByColor(color));
+        else
+            return mapper.map(repository.findByName(name));
+    }
 
-        return mapper.map(repository.findByName(name));
+    @GET
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getOne(@PathParam("id") Long id) {
+        var flower = repository.findById(id);
+        if (flower.isPresent())
+            return Response.ok().entity(mapper.map(flower.get())).build();
 
+        throw new NotFoundException("id" + id);
     }
 
     @POST
@@ -50,6 +62,10 @@ public class FoodController {
     @PUT
     @Path("/{id}")
     public void updateFlower(@PathParam("id") Long id, @QueryParam("name") String name, @QueryParam("color") String color) {
+        if (name == null && color == null) {
+            throw new IllegalArgumentException("At least one parameter is required.");
+        }
+
         if (color == null)
             repository.changeFlowerName(id, name);
         else if (name == null)

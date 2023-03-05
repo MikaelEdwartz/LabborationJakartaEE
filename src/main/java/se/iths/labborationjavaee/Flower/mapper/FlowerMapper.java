@@ -5,6 +5,7 @@ import se.iths.labborationjavaee.Flower.dto.FlowerDto;
 import se.iths.labborationjavaee.Flower.entity.Flower;
 
 import java.util.List;
+import java.util.Optional;
 
 @ApplicationScoped
 public class FlowerMapper {
@@ -19,5 +20,9 @@ public class FlowerMapper {
                 .setName(flowerDto.getName())
                 .setColor(flowerDto.getColor());
         return flower;
+    }
+
+    public FlowerDto map(Flower flower) {
+        return new FlowerDto(flower.getId(), flower.getName(), flower.getColor());
     }
 }

@@ -4,6 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
+import se.iths.labborationjavaee.Flower.dto.FlowerDto;
 import se.iths.labborationjavaee.Flower.entity.Flower;
 
 import java.util.List;
@@ -25,6 +26,13 @@ public class FlowerRepository {
         var query = entityManager.createQuery("SELECT f FROM Flower f WHERE f.name LIKE :name");
         query.setParameter("name", name);
         return query.getResultList();
+    }
+
+    public List<Flower> findByColor(String color) {
+        var query = entityManager.createQuery("SELECT f FROM Flower f WHERE f.color LIKE :color");
+        query.setParameter("color", color);
+        return query.getResultList();
+
     }
 
     public void insertFlower(Flower flower) {
@@ -61,4 +69,5 @@ public class FlowerRepository {
             flower.get().setName(name).setColor(color);
 
     }
+
 }
