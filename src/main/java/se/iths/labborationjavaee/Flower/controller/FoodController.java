@@ -71,7 +71,7 @@ public class FoodController {
         else if (name == null)
             repository.changeFlowerColor(id, color);
         else
-            repository.changeFlower(id, name, color);
+            repository.changeFlowerAttributes(id, name, color);
 
     }
 }

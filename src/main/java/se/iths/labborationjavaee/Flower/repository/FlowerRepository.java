@@ -4,7 +4,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
-import se.iths.labborationjavaee.Flower.dto.FlowerDto;
 import se.iths.labborationjavaee.Flower.entity.Flower;
 
 import java.util.List;
@@ -63,7 +62,7 @@ public class FlowerRepository {
 
     }
 
-    public void changeFlower(Long id, String name, String color) {
+    public void changeFlowerAttributes(Long id, String name, String color) {
         var flower = findById(id);
         if (flower.isPresent())
             flower.get().setName(name).setColor(color);

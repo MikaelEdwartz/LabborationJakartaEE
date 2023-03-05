@@ -34,6 +34,12 @@ public class Flower {
         return this;
     }
 
+    public Flower(Long id, String name, String color) {
+        this.id = id;
+        this.name = name;
+        this.color = color;
+    }
+
     public String getColor() {
         return color;
     }
