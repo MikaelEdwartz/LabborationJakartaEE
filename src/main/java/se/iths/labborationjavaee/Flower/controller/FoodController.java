@@ -16,7 +16,6 @@ import se.iths.labborationjavaee.Flower.repository.FlowerRepository;
 import java.net.URI;
 import java.util.List;
 
-
 @Path("/flowers")
 public class FoodController {
 
@@ -39,7 +38,6 @@ public class FoodController {
         else
             return mapper.map(repository.findByName(name));
     }
-
 
     @GET
     @Path("{id}")
