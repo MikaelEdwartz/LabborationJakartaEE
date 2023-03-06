@@ -17,6 +17,7 @@ public class Repository {
     public static final String FIND_FLOWERS_BY_COLOR_QUERY = "SELECT f FROM Flower f WHERE f.color LIKE :color";
     public static final String FIND_FLOWER_BY_NAME_QUERY = "SELECT f FROM Flower f WHERE f.name LIKE :name";
     public static final String FIND_ALL_FLOWERS_QUERY = "SELECT f FROM Flower f";
+
     @PersistenceContext
     EntityManager entityManager;
 
