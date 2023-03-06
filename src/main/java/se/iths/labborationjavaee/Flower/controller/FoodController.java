@@ -16,6 +16,7 @@ import se.iths.labborationjavaee.Flower.repository.FlowerRepository;
 import java.net.URI;
 import java.util.List;
 
+
 @Path("/flowers")
 public class FoodController {
 
@@ -27,10 +28,8 @@ public class FoodController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Returns list of Flowers",
-                    content = @Content(schema = @Schema(implementation = FlowerDto.class))),
-    })
+    @ApiResponse(responseCode = "200", description = "Returns list of Flowers",
+            content = @Content(schema = @Schema(implementation = FlowerDto.class)))
     public List<FlowerDto> getAll(@QueryParam("name") String name, @QueryParam("color") String color) {
 
         if (isAttributesNull(name, color))
@@ -76,12 +75,14 @@ public class FoodController {
 
     @PUT
     @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Flower updated"),
+            @ApiResponse(responseCode = "200", description = "Flower updated",
+                    content = @Content(schema = @Schema(implementation = FlowerDto.class))),
             @ApiResponse(responseCode = "404", description = "Id not found"),
             @ApiResponse(responseCode = "400", description = "No property to update")}
     )
-    public void updateFlower(@PathParam("id") Long id, @QueryParam("name") String name, @QueryParam("color") String color) {
+    public Response updateFlower(@PathParam("id") Long id, @QueryParam("name") String name, @QueryParam("color") String color) {
         if (repository.findById(id).isEmpty())
             throw new NotFoundException("id:" + id);
 
@@ -95,6 +96,7 @@ public class FoodController {
         else
             repository.changeFlowerAttributes(id, name, color);
 
+        return Response.ok().entity(mapper.map(repository.findById(id).get())).build();
     }
 
     private static boolean isAttributesNull(String name, String color) {

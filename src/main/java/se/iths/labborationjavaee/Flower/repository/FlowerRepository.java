@@ -52,21 +52,21 @@ public class FlowerRepository {
         var flower = findById(id);
         if (flower.isPresent())
             flower.get().setName(name);
-
+        entityManager.persist(flower);
     }
 
     public void changeFlowerColor(Long id, String color) {
         var flower = findById(id);
         if (flower.isPresent())
             flower.get().setColor(color);
-
+        entityManager.persist(flower);
     }
 
     public void changeFlowerAttributes(Long id, String name, String color) {
         var flower = findById(id);
         if (flower.isPresent())
             flower.get().setName(name).setColor(color);
-
+        entityManager.persist(flower);
     }
 
 }
