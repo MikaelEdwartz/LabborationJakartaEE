@@ -12,27 +12,29 @@ import java.util.Optional;
 
 @ApplicationScoped
 @Transactional
-public class FlowerRepository {
+public class Repository {
 
+    public static final String FIND_FLOWERS_BY_COLOR_QUERY = "SELECT f FROM Flower f WHERE f.color LIKE :color";
+    public static final String FIND_FLOWER_BY_NAME_QUERY = "SELECT f FROM Flower f WHERE f.name LIKE :name";
+    public static final String FIND_ALL_FLOWERS_QUERY = "SELECT f FROM Flower f";
     @PersistenceContext
     EntityManager entityManager;
 
     public List<Flower> findAll() {
-        var query = entityManager.createQuery("SELECT f FROM Flower f");
+        var query = entityManager.createQuery(FIND_ALL_FLOWERS_QUERY);
         return query.getResultList();
     }
 
     public List<Flower> findByName(String name) {
-        var query = entityManager.createQuery("SELECT f FROM Flower f WHERE f.name LIKE :name");
+        var query = entityManager.createQuery(FIND_FLOWER_BY_NAME_QUERY);
         query.setParameter("name", name);
         return query.getResultList();
     }
 
     public List<Flower> findByColor(String color) {
-        var query = entityManager.createQuery("SELECT f FROM Flower f WHERE f.color LIKE :color");
+        var query = entityManager.createQuery(FIND_FLOWERS_BY_COLOR_QUERY);
         query.setParameter("color", color);
         return query.getResultList();
-
     }
 
     public void insertFlower(Flower flower) {
