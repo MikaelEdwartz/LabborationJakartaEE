@@ -27,9 +27,13 @@ public class FoodController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Returns list of Flowers",
+                    content = @Content(schema = @Schema(implementation = FlowerDto.class))),
+    })
     public List<FlowerDto> getAll(@QueryParam("name") String name, @QueryParam("color") String color) {
 
-        if (name == null && color == null)
+        if (isAttributesNull(name, color))
             return mapper.map(repository.findAll());
         else if (name == null)
             return mapper.map(repository.findByColor(color));
@@ -37,13 +41,14 @@ public class FoodController {
             return mapper.map(repository.findByName(name));
     }
 
+
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "returns flower",
+            @ApiResponse(responseCode = "200", description = "Returns flower",
                     content = @Content(schema = @Schema(implementation = FlowerDto.class))),
-            @ApiResponse(responseCode = "404", description = "id not found")})
+            @ApiResponse(responseCode = "404", description = "Id not found")})
     public Response getOne(@PathParam("id") Long id) {
         var flower = repository.findById(id);
         if (flower.isPresent())
@@ -54,6 +59,7 @@ public class FoodController {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @ApiResponse(responseCode = "201", description = "Flower inserted")
     public Response addOne(@Valid FlowerDto flowerDto) {
         var flower = mapper.map(flowerDto);
         repository.insertFlower(flower);
@@ -63,16 +69,24 @@ public class FoodController {
 
     @DELETE
     @Path("/{id}")
+    @ApiResponse(responseCode = "200", description = "Flower deleted")
     public void deleteOne(@PathParam("id") Long id) {
         repository.deleteById(id);
     }
 
     @PUT
     @Path("/{id}")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Flower updated"),
+            @ApiResponse(responseCode = "404", description = "Id not found"),
+            @ApiResponse(responseCode = "400", description = "No property to update")}
+    )
     public void updateFlower(@PathParam("id") Long id, @QueryParam("name") String name, @QueryParam("color") String color) {
-        if (name == null && color == null) {
+        if (repository.findById(id).isEmpty())
+            throw new NotFoundException("id:" + id);
+
+        if (isAttributesNull(name, color))
             throw new IllegalArgumentException("At least one parameter is required.");
-        }
 
         if (color == null)
             repository.changeFlowerName(id, name);
@@ -81,5 +95,9 @@ public class FoodController {
         else
             repository.changeFlowerAttributes(id, name, color);
 
+    }
+
+    private static boolean isAttributesNull(String name, String color) {
+        return name == null && color == null;
     }
 }
