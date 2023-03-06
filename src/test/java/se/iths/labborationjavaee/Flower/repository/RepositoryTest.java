@@ -7,12 +7,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import se.iths.labborationjavaee.Flower.entity.Flower;
-import org.junit.jupiter.api.Test;
 import jakarta.persistence.Query;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -36,7 +34,8 @@ class RepositoryTest {
         when(query.getResultList()).thenReturn(expectedFlowers);
         when(entityManager.createQuery(Repository.FIND_ALL_FLOWERS_QUERY)).thenReturn(query);
 
-        assertThat(repository.findAll()).hasSameElementsAs(expectedFlowers);
+        var actualFlowers = repository.findAll();
+        assertThat(actualFlowers).hasSameElementsAs(expectedFlowers);
 
     }
 
@@ -49,7 +48,8 @@ class RepositoryTest {
         when(query.setParameter("name", name)).thenReturn(query);
         when(entityManager.createQuery(Repository.FIND_FLOWER_BY_NAME_QUERY)).thenReturn(query);
 
-        assertThat(repository.findByName(name)).isSameAs(expectedFlowers);
+        var actualFlowers = repository.findByName(name);
+        assertThat(actualFlowers).isSameAs(expectedFlowers);
 
     }
 
@@ -62,7 +62,9 @@ class RepositoryTest {
         when(query.setParameter("color", color)).thenReturn(query);
         when(entityManager.createQuery(Repository.FIND_FLOWERS_BY_COLOR_QUERY)).thenReturn(query);
 
-        assertThat(repository.findByColor(color)).isSameAs(expectedFlowers);
+        var actualFlowers = repository.findByColor(color);
+
+        assertThat(actualFlowers).isSameAs(expectedFlowers);
 
     }
 
@@ -71,6 +73,16 @@ class RepositoryTest {
         repository.insertFlower(flower1);
 
         verify(entityManager).persist(flower1);
+    }
+
+    @Test
+    void findByIdReturnsCorrectFlower() {
+        when(entityManager.find(Flower.class, 1L)).thenReturn(flower1);
+
+        var actualFlower = repository.findById(1L).get();
+
+        assertThat(actualFlower).isEqualTo(flower1);
+
     }
 
 }
