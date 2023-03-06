@@ -103,4 +103,5 @@ public class FoodController {
     private static boolean isAttributesNull(String name, String color) {
         return name == null && color == null;
     }
+
 }

@@ -24,4 +24,5 @@ public class FlowerMapper {
     public FlowerDto map(Flower flower) {
         return new FlowerDto(flower.getId(), flower.getName(), flower.getColor());
     }
+
 }
