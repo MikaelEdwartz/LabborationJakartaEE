@@ -12,6 +12,7 @@ import jakarta.ws.rs.core.Response;
 import se.iths.labborationjavaee.Flower.dto.FlowerDto;
 import se.iths.labborationjavaee.Flower.mapper.FlowerMapper;
 import se.iths.labborationjavaee.Flower.repository.FlowerRepository;
+import se.iths.labborationjavaee.Flower.resources.Attributes;
 
 import java.net.URI;
 import java.util.List;
@@ -88,11 +89,11 @@ public class FoodController {
             throw new IllegalArgumentException("At least one parameter is required.");
 
         if (color == null)
-            repository.changeFlowerName(id, name);
+            repository.changeAttributes(id, name, null, Attributes.NAME);
         else if (name == null)
-            repository.changeFlowerColor(id, color);
+            repository.changeAttributes(id, null, color, Attributes.COLOR);
         else
-            repository.changeFlowerAttributes(id, name, color);
+            repository.changeAttributes(id, name, color, Attributes.BOTH);
 
         return Response.ok().entity(mapper.map(repository.findById(id).get())).build();
     }

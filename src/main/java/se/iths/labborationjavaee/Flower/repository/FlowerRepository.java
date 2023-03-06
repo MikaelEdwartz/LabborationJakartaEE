@@ -5,7 +5,9 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import se.iths.labborationjavaee.Flower.entity.Flower;
+import se.iths.labborationjavaee.Flower.resources.Attributes;
 
+import java.text.AttributedString;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,24 +50,14 @@ public class FlowerRepository {
             entityManager.remove(flower.get());
     }
 
-    public void changeFlowerName(Long id, String name) {
-        var flower = findById(id);
-        if (flower.isPresent())
-            flower.get().setName(name);
-        entityManager.persist(flower);
-    }
+    public void changeAttributes(Long id, String name, String color, Attributes option) {
+        var flower = findById(id).get();
 
-    public void changeFlowerColor(Long id, String color) {
-        var flower = findById(id);
-        if (flower.isPresent())
-            flower.get().setColor(color);
-        entityManager.persist(flower);
-    }
-
-    public void changeFlowerAttributes(Long id, String name, String color) {
-        var flower = findById(id);
-        if (flower.isPresent())
-            flower.get().setName(name).setColor(color);
+        switch (option) {
+            case NAME -> flower.setName(name);
+            case COLOR -> flower.setColor(color);
+            case BOTH -> flower.setName(name).setColor(color);
+        }
         entityManager.persist(flower);
     }
 
