@@ -14,6 +14,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -48,8 +49,28 @@ class RepositoryTest {
         when(query.setParameter("name", name)).thenReturn(query);
         when(entityManager.createQuery(Repository.FIND_FLOWER_BY_NAME_QUERY)).thenReturn(query);
 
-        assertThat(repository.findByName(name)).hasSameElementsAs(expectedFlowers);
+        assertThat(repository.findByName(name)).isSameAs(expectedFlowers);
 
+    }
+
+    @Test
+    void usingFindByColorReturnsFlowersMatchingTheColor() {
+        var color = "vit";
+        List<Flower> expectedFlowers = List.of(flower2);
+
+        when(query.getResultList()).thenReturn(expectedFlowers);
+        when(query.setParameter("color", color)).thenReturn(query);
+        when(entityManager.createQuery(Repository.FIND_FLOWERS_BY_COLOR_QUERY)).thenReturn(query);
+
+        assertThat(repository.findByColor(color)).isSameAs(expectedFlowers);
+
+    }
+
+    @Test
+    void usingInsertFlowerMethodShouldIncreaseIntegerBy1() {
+        repository.insertFlower(flower1);
+
+        verify(entityManager).persist(flower1);
     }
 
 }
