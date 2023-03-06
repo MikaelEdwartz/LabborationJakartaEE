@@ -39,7 +39,6 @@ public class Flower {
         return this;
     }
 
-
     public String getColor() {
         return color;
     }
@@ -48,5 +47,4 @@ public class Flower {
         this.color = color;
         return this;
     }
-
 }

@@ -1,7 +1,5 @@
 package se.iths.labborationjavaee.Flower.dto;
 
-import se.iths.labborationjavaee.Flower.entity.Flower;
-
 public class FlowerDto {
     private Long id;
     private String name;
@@ -14,17 +12,6 @@ public class FlowerDto {
         this.id = id;
         this.name = name;
         this.color = color;
-    }
-
-    public FlowerDto(Long id, String name) {
-        this.id = id;
-        this.name = name;
-
-    }
-
-    public FlowerDto(Flower flower) {
-        this.id = flower.getId();
-        this.name = flower.getName();
     }
 
     public Long getId() {
