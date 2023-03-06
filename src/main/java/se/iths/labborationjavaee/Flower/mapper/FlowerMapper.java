@@ -5,7 +5,6 @@ import se.iths.labborationjavaee.Flower.dto.FlowerDto;
 import se.iths.labborationjavaee.Flower.entity.Flower;
 
 import java.util.List;
-import java.util.Optional;
 
 @ApplicationScoped
 public class FlowerMapper {

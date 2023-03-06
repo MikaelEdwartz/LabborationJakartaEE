@@ -38,6 +38,7 @@ public class FoodController {
             return mapper.map(repository.findByColor(color));
         else
             return mapper.map(repository.findByName(name));
+
     }
 
     @GET
@@ -68,8 +69,9 @@ public class FoodController {
     @DELETE
     @Path("/{id}")
     @ApiResponse(responseCode = "200", description = "Flower deleted")
-    public void deleteOne(@PathParam("id") Long id) {
+    public Response deleteOne(@PathParam("id") Long id) {
         repository.deleteById(id);
+        return Response.ok().build();
     }
 
     @PUT

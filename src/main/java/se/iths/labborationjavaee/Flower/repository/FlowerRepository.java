@@ -7,7 +7,6 @@ import jakarta.transaction.Transactional;
 import se.iths.labborationjavaee.Flower.entity.Flower;
 import se.iths.labborationjavaee.Flower.resources.Attributes;
 
-import java.text.AttributedString;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,9 +44,7 @@ public class FlowerRepository {
     }
 
     public void deleteById(Long id) {
-        var flower = findById(id);
-        if (flower.isPresent())
-            entityManager.remove(flower.get());
+        findById(id).ifPresent(value -> entityManager.remove(value));
     }
 
     public void changeAttributes(Long id, String name, String color, Attributes option) {
